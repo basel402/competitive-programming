@@ -1,0 +1,11 @@
+// static range queries
+
+// prefix sum
+int pre[n+1];// 1 based
+pre[i]+=pre[i-1];// for summation
+pre[i] *= pre[i-1];// for mult, init all array by one
+problems on cses:
+subarray sum 1,2
+subarray divisibility
+
+// partial sum
