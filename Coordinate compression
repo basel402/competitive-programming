@@ -1,0 +1,9 @@
+size of array in any prob is about max 1e6
+so if elements in that array are in a range up to 1e18 and we use partial or freq array it will memory limit
+so we can compress our array such that every big element can be resized to a new value which will be maximum the size of array
+steps:
+1- init temp vector and push all arr elemnts
+2- sort,erase using unique 
+3- arr[i] = lowerbound(v.beg,v.end,v[i])-v.begin;
+after these steps if you want to access the real element -> v[arr[i]]
+use cord comp when values are not important and ranges will not change if values changed
