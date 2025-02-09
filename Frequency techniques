@@ -1,0 +1,14 @@
+// frequency for letters
+// good for small ranges
+int freq [26] = {};// init every element to zero u can use vector instead
+freq[s[i]-'a']++;
+
+// better for memory optimization
+(cant allocate 1e9 array elements)
+(so map is better bec it dynmaically allocate only keys you add, array we would allocate 1e9 places and not use some of them)
+// log n for insertion in red black tree map
+// n for insert in hash map of hashing conflicts occur otherwise o(1)
+mp[s[i]-'a']++;
+
+** hint **
+// use to_lower or to_upper if needed
