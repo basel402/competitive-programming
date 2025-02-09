@@ -9,3 +9,9 @@ subarray sum 1,2
 subarray divisibility
 
 // partial sum
+you have array and some queries for adding some number in a specific range
+make a temp array
+temp[left]+=val
+temp[right+1]-=val
+make prefix sum on temp
+then add arr[i]+temp[i]
