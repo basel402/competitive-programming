@@ -2,6 +2,7 @@
 technique usually used with subarrays to optimize o(n^2) to o(n), u move with the right pointer and at a time you will stop and move the left pointer
 problem:
 books
+subbarray sums 1
 
 // binary search with doubles: 
 use iterations and all vars are long double
@@ -13,4 +14,3 @@ maximum median
 optimze a o(n^2) to o(n) by moving on the array
 problems:
 max subbarray sums
-subarray sums 2
