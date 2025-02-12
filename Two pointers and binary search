@@ -1,0 +1,10 @@
+// 2 pointers
+technique usually used with subarrays to optimize o(n^2) to o(n), u move with the right pointer and at a time you will stop and move the left pointer
+problem:
+books
+
+// binary search with doubles: 
+use iterations and all vars are long double
+// binary search on answer
+problems on bs:
+maximum median
