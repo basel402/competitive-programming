@@ -8,3 +8,9 @@ use iterations and all vars are long double
 // binary search on answer
 problems on bs:
 maximum median
+
+// sliding window
+optimze a o(n^2) to o(n) by moving on the array
+problems:
+max subbarray sums
+subarray sums 2
