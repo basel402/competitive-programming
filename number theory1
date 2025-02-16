@@ -1,0 +1,75 @@
+// check divisors
+void div(int n){
+    
+    vector<ll>v;
+
+    for (int i = 1; i*i <= n; ++i) {
+        if(n%i==0){
+            v.push_back(i);
+            if(i!=n/i)v.push_back(n/i);
+        }
+    }
+    
+}
+
+// check prime
+ bool prime = true; // global
+void prme(int n){
+    for (int i = 1; i*i <= n; ++i) {
+        if(n%i==0){
+            prime = false;
+            return;
+        }
+    }
+}
+
+// seive
+vector<bool>prime(10000001,true); // global
+
+void seive(){
+    prime[1]=false;prime[0]=false;
+    for(int i = 2 ; i<=sqrt(10000000) ; i++){
+        if(prime[i]){
+            for(int j = i*i ; j<=10000000  ;j+=i){
+                prime[j]=false;
+            }
+        }
+    }
+
+}
+
+// prime factors of a number
+vector<pair<ll,ll>> prime_factors_of_a_number(ll n){
+    ll ans = 0; // number of prime divisors
+    vector<pair<ll,ll>>ret;
+    for(ll i = 2 ; i*i<=n ;i++){
+        if(n%i==0){
+            ll c = 0;
+            while(n%i==0){
+                n/=i;c++;
+            }
+            ret.emplace_back(i,c);
+            ans+=c;
+        }
+    }
+    if(n>1)ret.emplace_back(n,1),ans++;
+    return ret;
+}
+
+// smallest prime factor
+vector<ll>spf(100001); // global
+void SPF(){
+    for (int i = 0; i < spf.size(); ++i) {
+        spf[i] = i;
+    }
+
+    for (int i = 2; i*i < spf.size() ; ++i) {
+        if(spf[i]==i){
+            for (int j = i*i; j <= spf.size(); j+=i) {
+                if(spf[j]==j){
+                  spf[j] = i;
+                }
+            }
+        }
+    }
+}
