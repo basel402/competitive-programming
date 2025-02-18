@@ -17,6 +17,16 @@ ll onezero(ll n,int i){
     return ((1<<i)^n);
 }
 
+void submasks_of_anumber(ll n){
+    // submask بيبقي فيه الوحايد فقط الموجودة فال ماسك الاصلي
+    ll tmp=n;
+    while(n!=0){
+        cout << n << end1;
+        n=tmp&(n-1);
+    }
+    cout << n << end1;
+}
+
 // mask == binary rep of a number
 // complete search on string s of size n to get all subsets of the string
 for(int i = 0 ; i<(1<<n) ;i++){
