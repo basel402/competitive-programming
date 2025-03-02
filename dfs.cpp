@@ -37,3 +37,20 @@ void dfs(int v,int parent){
 // degree in a indirected graph is the size of adj lists and in directed it have indegree(number of edges going to this node) and out degreee(number of nodes coming out of this node)
 // topo sort is sort based on prerequisites , the graph must be directed and acyclic
 // bipartite graph is 2 teams each member in a team cant be connected with a member in the same team
+
+// detect a cycle in a directed geaph
+const int sz = 2e5+5;
+vector<ll>adj[sz];
+vector<bool>vis(sz);
+vector<bool>ancestor(sz);
+bool cycle = false;
+void dfs(int v){
+
+    vis[v] = true;
+    for(auto u:adj[v]){
+        if(ancestor[u])cycle = true;
+        if(!vis[u])dfs(u);
+    }
+    ancestor[v] = false;
+    
+}
