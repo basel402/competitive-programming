@@ -34,4 +34,5 @@ void dfs(int v,int parent){
 
 }
 
+// degree in a indirected graph is the size of adj lists and in directed it have indegree(number of edges going to this node) and out degreee(number of nodes coming out of this node)
 // topo sort is sort based on prerequisites , the graph must be directed and acyclic
