@@ -33,3 +33,5 @@ void dfs(int v,int parent){
     }
 
 }
+
+// topo sort is sort based on prerequisites , the graph must be directed and acyclic
