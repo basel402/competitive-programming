@@ -3,6 +3,7 @@
 // u can print the shortest path form a node to a other by doing bfs then make a parent array all at first = -1 and then assign the parents to all the childs and then traverse from the last node until the parent of the cur node is -1 which is the root
 // if the cost of the edges is 1 then do the normal bfs but if the cost of a certain edge is 0 then push front not push back so we will use deque
 // multiple source problems you will bfs from all the sources at the same time and minimize the dist as usual
+// if you have a directed graph for course prerequisites and you want to detect cycles in it so you will remove all nodes with indegree 0 and if there are still remaining nodes then there is a cycle
 ll n,m;
 vector<ll>adj[sz];
 vector<ll>dist(sz,1e9);
