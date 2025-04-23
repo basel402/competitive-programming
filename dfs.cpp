@@ -22,7 +22,7 @@ void dfs(int v){
     
 }
 
-// dfs on only a tree
+// dfs on only a tree (valid tree without cycles,...)
 const int sz = 2e5+5;
 vector<ll>adj[sz];
 vector<bool>vis(sz);
