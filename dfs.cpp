@@ -6,6 +6,7 @@
 // in grid problems use nx and ny arrays intead of using adj list to know connected cells, they are known you can add 1 or -1 or add 0 .. to know your connected cells instead of using great memory and time in adj list
 // dfs and bfs are traversal algorithms on a graph, dfs pass by all nodes in a graph dont care about order it cares about how adj list is built
 // to check if the graph is a tree you will check if it have n-1 edges and acyclic or it have n-1 edges and connected
+// u can structure a topo sort tree but without printing lexicographicaly smallest using dfs (hirerachy problem) 
 
 //n-1 edges and acyclic check
 bool flag = true;
