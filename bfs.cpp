@@ -4,6 +4,8 @@
 // if the cost of the edges is 1 then do the normal bfs but if the cost of a certain edge is 0 then push front not push back so we will use deque
 // multiple source problems you will bfs from all the sources at the same time and minimize the dist as usual
 // if you have a directed graph for course prerequisites and you want to detect cycles in it so you will remove all nodes with indegree 0 and if there are still remaining nodes then there is a cycle
+// 0-1 bfs 
+//khan algorithm for topo sort in lexicographically smallest answer
 ll n,m;
 vector<ll>adj[sz];
 vector<ll>dist(sz,1e9);
