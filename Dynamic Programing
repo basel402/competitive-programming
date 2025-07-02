@@ -1,0 +1,6 @@
+dp -> its a memoaization technique to not perform same fun with same state multiple time so u will store the value of each state and when needed again u will use it in o(1)
+like in fibonacci u dont have to calculate fib(3) multiple times once calc it store it then use it afterwards, fib without dp is o(2^n) , with dp o(n)
+dp in general take o(n*m) -> n is number of diff states you can have its the mult of all parameters of the recursive function, m is the extra time inside the recursive function an extra loop which do something.
+dp memory -> o(n) , n is states
+fibonacci -> o(n), because only one parameter in the function which max reach n and no extra time inside the function.
+dp usages -> can i calculate something? , what is the best path?, how many ways? (counting something)., trying all possible states
