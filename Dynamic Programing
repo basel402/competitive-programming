@@ -5,3 +5,4 @@ dp memory -> o(n) , n is states
 fibonacci -> o(n), because only one parameter in the function which max reach n and no extra time inside the function.
 dp usages -> can i calculate something? , what is the best path?, how many ways? (counting something)., trying all possible states
 knapsack style -> subset problems we will take an element or leave it the state is the current index and the current sum
+iterative dp-> start with the subproblems, have specefic order, know all the subproblem values before starting, no function call overhead, no stack overflow
