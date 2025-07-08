@@ -1,77 +1,156 @@
-// check divisors
-void div(int n){
-    
-    vector<ll>v;
 
-    for (int i = 1; i*i <= n; ++i) {
-        if(n%i==0){
-            v.push_back(i);
-            if(i!=n/i)v.push_back(n/i);
-        }
-    }
-    
+int const N = 1e6+5;
+int const MOD = 1e9+7;
+
+
+
+ll mult(ll a, ll b) {
+    return ((a% MOD) * (b% MOD)) % MOD;
 }
 
-// check prime
- bool prime = true; // global
-void prme(int n){
-    for (int i = 1; i*i <= n; ++i) {
-        if(n%i==0){
-            prime = false;
-            return;
+
+
+ll add(ll a, ll b) {
+    return ((a% MOD) + (b % MOD)) % MOD;
+}
+
+
+
+ll sub(ll a, ll b) {
+    return ((a % MOD - b % MOD + MOD) % MOD);
+}
+
+
+
+ll fastPower(ll a, ll b){ // log(b)
+    ll ans = 1;
+    while (b != 0){
+        if (b%2 == 1){
+            ans = mult(ans, a);
+        }
+        a = mult(a, a);
+        b /= 2;
+    }
+    return ans;
+}
+
+
+
+
+ll divMod(ll a, ll b){
+    // MOD must be prime
+    return mult(a, fastPower(b, MOD-2));
+}
+
+
+
+
+//Linear Sieve O(n)
+void linear_sieve(int n) {
+    bool composite[n];
+    vector<int> primes;
+    fill(composite, composite + n, false);
+    composite[0] = composite[1] = true;
+
+    for (int i = 2; i < n; i++) {
+        if (!composite[i]) primes.push_back(i);
+        for (int j = 0; j < primes.size() && i * primes[j] < n; ++j) {
+            composite[i * primes[j]] = true;
+            if (i % primes[j] == 0) break;
         }
     }
 }
 
-// seive
-vector<bool>prime(10000001,true); // global
 
-void seive(){
-    prime[1]=false;prime[0]=false;
-    for(int i = 2 ; i<=sqrt(10000000) ; i++){
-        if(prime[i]){
-            for(int j = i*i ; j<=10000000  ;j+=i){
-                prime[j]=false;
+
+
+vector<bool> primes(N, true);
+void sieve(){ // O(Nlog(log(N)))
+    primes[1] = primes[0] = false;
+    for (ll i = 2; i < N; ++i) {
+        if (primes[i]){
+            for (ll j = i*i; j < N; j+=i) {
+                primes[j] = false;
             }
         }
     }
-
 }
 
-// prime factors of a number
-vector<pair<ll,ll>> prime_factors_of_a_number(ll n){
-    ll ans = 0; // number of prime divisors
-    vector<pair<ll,ll>>ret;
-    for(ll i = 2 ; i*i<=n ;i++){
-        if(n%i==0){
-            ll c = 0;
-            while(n%i==0){
-                n/=i;c++;
-            }
-            ret.emplace_back(i,c);
-            ans+=c;
-        }
+
+
+bool isPrime(int n){
+    for (int i = 2 ; i * i <= n ; i++) {
+        if (n %i == 0)
+            return false;
     }
-    if(n>1)ret.emplace_back(n,1),ans++;
-    return ret;
+    return n > 1;
 }
 
-// smallest prime factor
-vector<ll>spf(100001); // global
-void SPF(){
-    for (int i = 0; i < spf.size(); ++i) {
+
+
+
+ll GCD(ll a, ll b){ // log(min(a,b)
+    if (b == 0)
+        return a;
+    return gcd(b, a%b);
+}
+
+
+
+
+ll LCM(int a, int b){
+    return (a / gcd(a, b)) * b;
+}
+
+
+
+
+int spf[N];
+void preSpf () {
+    for (int i = 1; i < N; ++i) {
         spf[i] = i;
     }
-
-    for (int i = 2; i*i < spf.size() ; ++i) {
-        if(spf[i]==i){
-            for (int j = i*i; j <= spf.size(); j+=i) {
-                if(spf[j]==j){
-                  spf[j] = i;
-                }
+    for (int i = 2; i*i < N; ++i) {
+        if (spf[i] == i) {
+            for (int j = i*i; j < N; j += i) {
+                if (spf[j] == j)
+                    spf[j] = i;
             }
         }
     }
 }
-​
- xi*(2i−k−1) from i=1 to k is sum of all pairs of a sorted list o(n)
+
+
+
+map<int, int> primeFac(int n) {
+    map<int, int> res;
+    while (n > 1) {
+        res[spf[n]]++;
+        n /= spf[n];
+    }
+    return res;
+}
+
+
+
+int fac[N], inv[N];
+void factorials() {
+    fac[0] = 1;
+    for (int i = 1; i < N; i++) {
+        fac[i] = mult (fac[i-1], i);
+    }
+    inv[0] = 1;
+    for (int i = 1; i < N; i++) {
+        inv[i] = fastPower(fac[i], MOD - 2);
+    }
+}
+
+
+ 
+ll nCr(int n, int r, int p = MOD) {
+    if (r == n || r == 0)
+        return 1;
+    if (r > n || r < 0)
+        return 0;
+    return mult(fac[n], mult(inv[n-r], inv[r]));
+}
