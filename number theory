@@ -154,3 +154,16 @@ ll nCr(int n, int r, int p = MOD) {
         return 0;
     return mult(fac[n], mult(inv[n-r], inv[r]));
 }
+
+
+const int sz = 1e6+1;
+vector<ll>v(sz);
+void precomputedivisors(){ // nlogn
+    for (int i = 1; i < sz; ++i) {
+        ll tmp = 1;
+        while(i*tmp <= 1e6){
+            v[i*tmp]++;
+            tmp++;
+        }
+    }
+}
