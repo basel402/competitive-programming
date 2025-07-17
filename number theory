@@ -167,3 +167,5 @@ void precomputedivisors(){ // nlogn
         }
     }
 }
+
+// bezout identity : if i have sum numbers a,b and i multiplied each by a number like this:  (a*x + b*y) then its equal k*gcd(a,b) -> a multiple of the gcd(a,b) where k>=1
