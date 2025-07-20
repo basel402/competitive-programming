@@ -168,4 +168,21 @@ void precomputedivisors(){ // nlogn
     }
 }
 
+vector<pair<ll,ll>> prime_factors_of_a_number(ll n){
+    ll ans = 0;// number of prime divisors
+    vector<pair<ll,ll>>ret;
+    for(ll i = 2 ; i*i<=n ;i++){
+        if(n%i==0){
+            ll c = 0;
+            while(n%i==0){
+                n/=i;c++;
+            }
+            ret.emplace_back(i,c);
+            ans+=c;
+        }
+    }
+    if(n>1)ret.emplace_back(n,1),ans++;
+    return ret;
+}
+
 // bezout identity : if i have sum numbers a,b and i multiplied each by a number like this:  (a*x + b*y) then its equal k*gcd(a,b) -> a multiple of the gcd(a,b) where k>=1
