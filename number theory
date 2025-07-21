@@ -186,3 +186,6 @@ vector<pair<ll,ll>> prime_factors_of_a_number(ll n){
 }
 
 // bezout identity : if i have sum numbers a,b and i multiplied each by a number like this:  (a*x + b*y) then its equal k*gcd(a,b) -> a multiple of the gcd(a,b) where k>=1
+
+// gcd(x+k,y+k) = gcd(x+k,y-x)
+// (x+k)%p = 0 , k = (p-x%p)%p
