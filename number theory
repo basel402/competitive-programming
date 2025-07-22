@@ -189,3 +189,4 @@ vector<pair<ll,ll>> prime_factors_of_a_number(ll n){
 
 // gcd(x+k,y+k) = gcd(x+k,y-x)
 // (x+k)%p = 0 , k = (p-x%p)%p
+// Every even number ≥ 4 is a sum of two prime numbers.
