@@ -1,0 +1,2 @@
+1 2 3 4 6 10 -> have n! diffirent permutations
+if choosing x size -> have npx permutations == n!/(n-x)!
