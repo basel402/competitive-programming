@@ -191,6 +191,8 @@ vector<pair<ll,ll>> prime_factors_of_a_number(ll n){
 // number of integers divisble by x or y or z in range 1->n  =  n/x + n/y + n/z - n/lcm(x,y) - n/lcm(x,z) - n/lcm(y,z) + n/lcm(x,y,z)
 // in general if i have x numbers i wil get all subsets of these numbers and if the size of subset is odd then add n/lcm(nums in subset) else minus it (inclusion and execlusion principle)
 // nth catalan number = 1/n+1 * 2ncn
+// nck = n-1ck-1 + n-1ck
+// screenshots and whiteboards
 // gcd(x+k,y+k) = gcd(x+k,y-x)
 // (x+k)%p = 0 , k = (p-x%p)%p
 // Every even number ≥ 4 is a sum of two prime numbers.
