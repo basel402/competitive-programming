@@ -186,8 +186,8 @@ vector<pair<ll,ll>> prime_factors_of_a_number(ll n){
 }
 
 // bezout identity : if i have sum numbers a,b and i multiplied each by a number like this:  (a*x + b*y) then its equal k*gcd(a,b) -> a multiple of the gcd(a,b) where k>=1
-// number of integers divisble by x,y in range 1->n  =  n/x + n/y - n/lcm(x,y)
-
+// number of integers divisble by x or y in range 1->n  =  n/x + n/y - n/lcm(x,y) , because n/lcm is the number of coommon multiples of x,y
+// number of integers divisble by x and y in range 1->n  =  n/lcm(x,y)
 // gcd(x+k,y+k) = gcd(x+k,y-x)
 // (x+k)%p = 0 , k = (p-x%p)%p
 // Every even number ≥ 4 is a sum of two prime numbers.
