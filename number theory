@@ -148,11 +148,11 @@ void factorials() {
 
  
 ll nCr(int n, int r, int p = MOD) {
-    if (r == n || r == 0)
-        return 1;
-    if (r > n || r < 0)
-        return 0;
-    return mult(fac[n], mult(inv[n-r], inv[r]));
+    if (r > n || r < 0) return 0;
+    if (r == n || r == 0) return 1;
+    if (n >= p)
+        return mult(nCr(n/p, r/p), nCr(n%p, r%p));
+    return mult(fac[n], mult (inv[r], inv[n - r]));
 }
 
 
