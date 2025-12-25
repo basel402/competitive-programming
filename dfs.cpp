@@ -105,13 +105,19 @@ vector<ll>adj[sz];
 vector<bool>vis(sz);
 vector<bool>ancestor(sz);
 bool cycle = false;
-void dfs(int v){
-
+void dfs(int v) {
     vis[v] = true;
-    for(auto u:adj[v]){
-        if(ancestor[u])cycle = true;
-        if(!vis[u])dfs(u);
+    ancestor[v] = true; 
+
+    for (auto u : adj[v]) {
+        if (!vis[u]) {
+            dfs(u);
+        } 
+        else if (ancestor[u]) {
+            cycle = true;
+        }
     }
+
     ancestor[v] = false;
-    
 }
+
